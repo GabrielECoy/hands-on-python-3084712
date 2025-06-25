@@ -12,8 +12,11 @@ EINSTEIN = {
     "motivation": "for his services to Theoretical Physics...",
 }
 
+# Open the laureates.csv file for reading
 with open("laureates.csv", "r") as f:
+    # Create a DictReader to read the CSV file as dictionaries (each row becomes a dict)
     reader = csv.DictReader(f)
+    # Convert the reader object to a list of dictionaries, one for each laureate
     laureates = list(reader)
 
 for laureate in laureates:
