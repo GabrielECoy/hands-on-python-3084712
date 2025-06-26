@@ -4,9 +4,13 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-with open("laureates.csv", "r") as f:
-    reader = csv.DictReader(f)
-    laureates = list(reader)
+try:
+    with open("laureates.csv", "r") as f:
+        reader = csv.DictReader(f)
+        laureates = list(reader)
+except Exception as e:
+    print(f"Error reading laureates.csv: {e}")
+    laureates = []
 
 
 @app.route("/")
@@ -26,12 +30,13 @@ def laureate_list():
 
     # tip: remember that laureate["name"] contains a first name
     for laureate in laureates:
-        surname = laureate["surname"].lower()
-        # your code here
-        if search_string in surname:
+        if search_string in laureate["name"].lower():
+            results.append(laureate)
+            continue
+        if search_string in laureate["surname"].lower():
             results.append(laureate)
 
     return jsonify(results)
 
-
+#if __name__ == "__main__":
 app.run(debug=True)
