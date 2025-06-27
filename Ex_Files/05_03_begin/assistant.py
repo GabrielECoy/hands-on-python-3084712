@@ -1,5 +1,7 @@
 import os
 from openai import OpenAI # python -m pip install openai
+# python -m pip install pipupgrade
+# install the PipUpgrade package, which automates the process of updating all your Python packages across various environments.
 
 token = os.environ["GITHUB_TOKEN"]
 endpoint = "https://models.inference.ai.azure.com"
