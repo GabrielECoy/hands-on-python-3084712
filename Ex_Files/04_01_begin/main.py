@@ -1,4 +1,4 @@
-import requests
+import requests # python -m pip install requests
 
 response = requests.get(
     "http://api.worldbank.org/v2/countries/USA/indicators/SP.POP.TOTL?per_page=5000&format=json",

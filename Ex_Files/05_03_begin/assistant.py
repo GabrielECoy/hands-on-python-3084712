@@ -1,5 +1,5 @@
 import os
-from openai import OpenAI
+from openai import OpenAI # python -m pip install openai
 
 token = os.environ["GITHUB_TOKEN"]
 endpoint = "https://models.inference.ai.azure.com"
